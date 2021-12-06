@@ -3,6 +3,7 @@ import App from './App.vue'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { setContext } from '@apollo/client/link/context';
 import {createApolloProvider} from '@vue/apollo-option';
+import router from '@/router';
 
 const httpLink = createHttpLink({
     uri: 'localhost:4000'
@@ -34,5 +35,6 @@ const apolloProvider = new createApolloProvider({
 const app = createApp(App);
 
 app.use(apolloProvider);
+app.use(router);
 
 app.mount('#app')
