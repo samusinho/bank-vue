@@ -11,10 +11,14 @@ export default {
   components: {},
   methods: {
     completeLogin: function (data) {
-      console.log(data);
+      for (let i in data) {
+        localStorage.setItem(i, data[i]);
+      }
+      this.$router.push({ name: 'home' });
     },
     logOut: function () {
-      
+      localStorage.clear();
+      this.$router.push({ name: 'signIn' });
     }
   }
 }

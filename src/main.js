@@ -6,7 +6,7 @@ import {createApolloProvider} from '@vue/apollo-option';
 import router from '@/router';
 
 const httpLink = createHttpLink({
-    uri: 'localhost:4000'
+    uri: 'http://localhost:4000'
 });
 
 const authLink = setContext((_, {headers}) => {
