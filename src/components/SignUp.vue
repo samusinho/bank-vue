@@ -2,42 +2,71 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 mb-2">
-                <label for="first_name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="first_name" v-model="first_name">
+                <label for="first_name" >Nombre</label>
+                <div>
+                    <InputText 
+                    id="first_name" 
+                    type="text" 
+                    v-model="first_name"/>
+                </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-2">
-                <label for="last_name" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="last_name" v-model="last_name">
+                <label for="last_name" >Apellido</label>
+                <div>
+                    <InputText 
+                    id="last_name" 
+                    type="text" 
+                    v-model="last_name"/>
+                </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-2">
-                <label for="username" class="form-label">Nombre de usuario</label>
-                <input type="text" class="form-control" id="username" v-model="username">
+                <label for="username" >Nombre de usuario</label>
+                <div>
+                    <InputText 
+                    id="username" 
+                    type="text" 
+                    v-model="username"/>
+                </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-2">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" v-model="email">
+                <label for="email">Correo electrónico</label>
+                <div>
+                    <InputText 
+                    id="email" 
+                    type="email" 
+                    v-model="email"/>
+                </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mb-2">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" v-model="password">
+                <label for="password">Contraseña</label>
+                <div>
+                    <InputText 
+                    id="password" 
+                    type="password" 
+                    v-model="password"/>
+                </div>
             </div>
         </div>
-        <button 
-        type="button" 
-        class="btn btn-primary"
-        v-on:click="signUp()">Registrarme</button>
-        <div style="text-align: right;">
-            <a class="link" v-on:click="goToSignIn()">Tienes usuario? Inicia sesión!</a>
-        </div>
+        <Button label="Registrarme" @click="signUp()"/>
+        <Button 
+        label="Tienes usuario? Inicia sesión!" 
+        class="p-button-text"
+        v-on:click="goToSignIn()"/>
     </div>
 </template>
 
 <script>
 import gql from "graphql-tag";
 import Swal from "sweetalert2";
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
 
 export default {
     name: 'SignUp',
+    components: {
+        InputText,
+        Button
+    },
     data() {
         return {
             username: '',
@@ -107,7 +136,7 @@ export default {
 </script>
 
 <style scoped>
-.link {
-    cursor: pointer;
+.p-inputtext {
+    width: 100%;
 }
 </style>

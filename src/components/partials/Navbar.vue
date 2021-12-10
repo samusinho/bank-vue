@@ -3,11 +3,7 @@
         <div class="bg-dark p-4">
             <h5 class="text-white h4">Hola, {{username}}!!</h5>
             <p class="text-muted">Da click en "Cerrar sesión" si deseas salir...</p>
-            <button 
-            class="btn btn-danger btn-sm"
-            v-on:click="logOut()">
-                Cerrar sesión
-            </button>
+            <Button label="Cerrar sesión" @click="logOut()"/>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -20,9 +16,14 @@
 </template>
 
 <script>
+import Button from 'primevue/button';
+
 export default {
     name: 'Navbar',
     props: ['logOut'],
+    components: {
+        Button
+    },
     created() {
         this.username = localStorage.getItem('username') || '';
     },

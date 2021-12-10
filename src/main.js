@@ -1,8 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import 'primevue/resources/primevue.min.css';
+import 'primeicons/primeicons.css';
+import 'primevue/resources/themes/md-light-indigo/theme.css';
+import PrimeVue from 'primevue/config';
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { setContext } from '@apollo/client/link/context';
-import {createApolloProvider} from '@vue/apollo-option';
+import { createApolloProvider } from '@vue/apollo-option';
 import router from '@/router';
 
 const httpLink = createHttpLink({
@@ -34,7 +38,8 @@ const apolloProvider = new createApolloProvider({
 
 const app = createApp(App);
 
+app.use(PrimeVue);
 app.use(apolloProvider);
 app.use(router);
 
-app.mount('#app')
+app.mount('#app');
